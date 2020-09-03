@@ -8,14 +8,17 @@ int main()
 {
 	float quart,total;
 
-	printf("Please enter : ");
-	scanf("%f",&quart);
+	while(1)
+	{
+		printf("Please enter(q for quit) : ");
+		if(scanf("%f",&quart) != 1)
+			break;
 
 
-	total = quart * NUM / WEIGHT;
+		total = quart * NUM / WEIGHT;
 
-	printf("total: %e\n",total);
-
+		printf("total: %e\n",total);
+	}
 
 	exit(0);//return 0;
 }
