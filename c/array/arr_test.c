@@ -61,13 +61,42 @@ void test5()
 
 }
 
+void test4()
+{
+	int n[64],i = 0;
+	int num,base;
+
+	printf("Please enter a NUM : ");
+	scanf("%d",&num);
+	printf("Please enter a BASE : ");
+	scanf("%d",&base);
+	
+	do
+	{
+		n[i] = num % base;
+		num = num/base;
+		i++;
+	}while(num != 0);
+
+	for(i = i-1; i>= 0 ; i--)
+	{
+		if(n[i] >= 10)
+			printf("%c ",n[i]-10+'A');
+		else
+			printf("%d ",n[i]);
+	}
+	printf("\n");
+
+}
+
+
 int main()
 {
 
 
 //	test1();
-	test5();
-
+//	test5();
+	test4();
 
 
 	exit(0);
