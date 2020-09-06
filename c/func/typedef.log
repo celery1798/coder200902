@@ -1,0 +1,34 @@
+TYPE  NAME =  VALUE;
+
+int i = 1;
+float  f = 8.9;
+char ch = 'a';
+int *   p = &i;
+	
+int a[3] = {1,2,3}; 
+int[3] a= {1,2,3};
+
+int a[2][3] = {{},{}};
+int[2][3] a = {{},{}};
+
+int func(int){   }   -> int(int) func  {   }
+
+
+
+
+typedef  type   NEWNAME;
+
+typedef int  INT;
+INT  a;  ->  int a;
+
+typedef struct student STU;
+
+typedef int  A[3];    ->   int[3]  A
+A  a;  ->   int  a[3];
+
+typedef int FUNC(int);     ->  int(int)   FUNC
+FUNC  f;  ->  int f(int);
+
+
+
+
