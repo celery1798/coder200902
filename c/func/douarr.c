@@ -4,13 +4,21 @@
 #define M	2
 #define N	3
 
-print_arr()
-{
-
-
+void print_arr(int (*p)[N], int m,int n)
+{	
+	int i,j;
+	
+	for(i = 0 ; i < m ; i++)
+	{
+		for(j = 0 ; j < n ; j++)
+			printf("%d ",*(*(p+i)+j));
+		printf("\n");
+	}
 }
 
-//func(   )
+//func( int *,     int (*)[N] , int *,  int*,       int   ,     int  ,\
+	int *,     int ,      int *,     int ,       int  ,\
+	int *,     int ,      int(*)[N]      )
 
 int main()
 {
@@ -22,8 +30,11 @@ int main()
 
 	print_arr(a,M,N);
 	
+//	printf("MAIN():%d ",**a);
 	
-//func( a[0],  p+1,  *p,  q+3,   *q+3,   **p,   &a[1][0],  q[2],  p[1],  *p[0]   ,  a[1][0] ,  *(p+1)+1,   *(q+1)+1 ,  a+1  )
+//func( a[0],        p+1,         *p,       q+3,         *q+3,      **p,   \
+	&a[1][0],    q[2],       p[1],      *p[0]   ,    a[1][0] ,     \
+	*(p+1)+1,    *(q+1)+1 ,   a+1   )
 
 
 
