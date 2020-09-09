@@ -4,6 +4,8 @@ int i = 1;
 float  f = 8.9;
 char ch = 'a';
 int *   p = &i;
+struct student  s = { , , , };
+struct student *p = &s;
 	
 int a[3] = {1,2,3}; 
 int[3] a= {1,2,3};
@@ -28,6 +30,25 @@ A  a;  ->   int  a[3];
 
 typedef int FUNC(int);     ->  int(int)   FUNC
 FUNC  f;  ->  int f(int);
+
+
+typedef int (*FUNC)(int);   ->  int(int) *   FUNC
+FUNC p,q;   ->  int (*p)(int);  int (*q)(int);
+
+
+typedef int *(*FUNC)(int);     ->    int*(int)   *  FUNC
+FUNC p;    -> int *(*p)(int)
+
+
+typedef int *(*FUNC[3])(int);     ->         int*(int)  *   p  [3]
+FUNC p;     ->  int *(*p[3])(int);
+
+
+
+typedef void *(*FUNC)(int*,void *);  void*(int*,void*)   *   FUNC;
+FUNC p  ;   ->  void *(int*,void*)  *  p
+
+
 
 
 

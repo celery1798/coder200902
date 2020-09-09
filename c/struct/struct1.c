@@ -15,31 +15,56 @@ typedef struct student
 void init(STU *p)
 {
 	p->id = 10000;
-	strcpy(p->name,"stu");
+	p->name = NULL;
+//	p->name = malloc(1);
+//	*(p->name) = '\0';
 	p->math = 0;
 }
 
 void menu()
 {
-	printf("---MENU---\n1 SET\n2 CHANGE\n3 SHOW\nq QUIT\n");
+	printf("---MENU---\n1 SET\n2 CHANGE\n3 SHOW\nq QUIT\n\n");
 
 }
 
-void show(STU a)
+void show(STU *p)
 {
-	printf("%d %s %.2f\n",a.id, a.name, a.math);	
+	printf("%d %s %.2f\n",p->id, p->name, p->math);	
 }
 
-void set(STU *p)
+int  set(STU *p)
 {
+	char newname[NAMEMAX];
 	printf("Please enter for student: ");
-	scanf("%d%s%f",&p->id, p->name, &p->math);
+	scanf("%d%s%f",&p->id,newname,&p->math);
+	/*if error,  return -2 */
+	free(p->name);
+	p->name = malloc(strlen(newname)+1);
+	if(p->name == NULL)
+		return -1;
+	strcpy(p->name,newname);
+	return 0;
 }
 
-void change(STU *p)
+int change(STU *p)
 {
+	char newname[NAMEMAX];
+
 	printf("Please enter the NEW NAME: ");
-	scanf("%s",p->name);
+	scanf("%s",newname);
+	/*if error,  return -1 */
+	
+	free(p->name);
+	p->name = malloc(strlen(newname)+1);
+        if(p->name == NULL)
+                return -1;
+        strcpy(p->name,newname);
+        return 0;
+}
+
+void destroy(STU *p)
+{
+	free(p->name);
 }
 
 int main()
@@ -53,7 +78,7 @@ int main()
 	{
 		menu();
 		if(scanf("%d",&choice) != 1)
-			exit(1);
+			break;
 		switch(choice)
 		{	
 			case 1:
@@ -63,7 +88,7 @@ int main()
 				change(&s);
 				break;
 			case 3:
-				show(s);
+				show(&s);
 				break;
 			default:
 				break;
@@ -71,6 +96,9 @@ int main()
 		printf("\n\n");	
 		sleep(2);		
 	}
+
+	destroy(&s);
+
 	exit(0);
 }
 
