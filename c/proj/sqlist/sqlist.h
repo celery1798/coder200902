@@ -1,6 +1,12 @@
 #ifndef SQLIST_H__
 #define SQLIST_H__
 
+/*
+
+
+
+*/
+
 typedef int datatype;
 #define MAXSIZE	128
 
@@ -21,7 +27,15 @@ int sqlist_setempty(SQLIST *);
 
 int sqlist_total(SQLIST *);
 
-int sqlist_insert(SQLIST *, int pos, datatype *);
+
+/*
+sqlist_insert:insert a newdata to the SQLIST
+@l:a point to the SQLIST
+@pos:the position that the newdata will be inserted
+@newdata:the new data will be inserted.
+return :-2       -1        0
+*/
+int sqlist_insert(SQLIST *l, int pos, datatype *newdata);
 int sqlist_delete(SQLIST *,int pos, datatype *);
 
 int sqlist_insert_order(SQLIST *,datatype *);
